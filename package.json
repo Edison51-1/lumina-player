@@ -1,0 +1,39 @@
+{
+  "name": "lumina-player",
+  "version": "1.0.0",
+  "description": "Lecteur vidéo simple et rapide pour Windows et Linux",
+  "main": "main.js",
+  "author": "Jonard <jonard@example.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win",
+    "dist:linux": "electron-builder --linux"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.jonard.lumina",
+    "productName": "Lumina Player",
+    "files": ["main.js", "preload.js", "renderer/**/*"],
+    "fileAssociations": [
+      { "ext": ["mp4", "mkv", "webm", "mov", "m4v"], "name": "Vidéo", "role": "Viewer" }
+    ],
+    "win": { "target": [{ "target": "nsis", "arch": ["x64"] }] },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "language": "1036"
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "AudioVideo",
+      "maintainer": "Jonard <jonard@example.com>"
+    }
+  }
+}
