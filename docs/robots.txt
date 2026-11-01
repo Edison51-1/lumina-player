@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://edison51-1.github.io/lumina-player/sitemap.xml
